@@ -1,13 +1,13 @@
 /*global kakao*/
 import React, { Component } from 'react';
-import { Collapse, Container, Media,  Card, CardImg, CardImgOverlay, CardText, CardBody,
+import { Collapse, Media, Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Row, Col, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, FormGroup, Input, TabContent,
-    TabPane, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, CardHeader, UncontrolledDropdown } from 'reactstrap';
+    TabPane, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, CardHeader, UncontrolledDropdown} from 'reactstrap';
 import { data } from "./data";
 import ReviewForm from './review/reviewForm';
 import ReviewList from './review/reviewList';
 import * as d3 from "d3"
-import { FaThList } from 'react-icons/fa';
+import { Container } from '../Container';
 const margin = { top: 0, right: 0, bottom: 15, left: 50 }
 const width = 700 - margin.left - margin.right
 const height = 155 - margin.top - margin.bottom
@@ -1366,6 +1366,12 @@ class Map extends Component {
     
       }
 
+    onSubmit = (event) => {
+        event.preventDefault(event);
+        console.log(event.target.name.value);
+        console.log(event.target.level_score.value);
+    }
+
     handleCreate = (data) => {
         const { information } = this.state;
         this.setState({
@@ -1476,24 +1482,27 @@ class Map extends Component {
                         <div>무려 600 km를 육박하는 이 자전거길은 한국 자전거 여행자의 최종 관문이라 할 수 있습니다. 여의도 마리나부터 부산시청까지 5~7일을 거쳐 죽음의 고비로 불리는 문경새재를 통과해야 합니다.
                              체력을 유지하면서 포기하지 않고 꾸준히 매일 나아가는게 중요한 길입니다.</div>
                         <hr/>
+                        <div><h3>고도 정보</h3></div>
                         <div className="row">
                             <div>
-                                <div>총 거리</div>
-                                <div>571.7 km</div>
-                                <div>최저/최고 고도</div>
-                                <div>1 m / 539 m</div>
-                                <div>예상 시간</div>
-                                <div>31시간 57분</div>
-                                <div>칼로리 소비량</div>
-                                <div>11,502 kcal</div>
+                                <h5>총 거리</h5>
+                                <h7>571.7 km</h7>
+                                <h5>최저/최고 고도</h5>
+                                <h7>1 m / 539 m</h7>
+                                <h5>예상 시간</h5>
+                                <h7>31시간 57분</h7>
+                                <h5>칼로리 소비량</h5>
+                                <h7>11,502 kcal</h7>
                             </div>
-                            <div><h3>고도 정보</h3></div>
                             <div style={{display: "flex"}}>
                             {this.state.data.length > 0 && <div id="elevationChart" />}
                             </div>
                         </div>
                         <hr/>
-                        <h3>리뷰</h3>
+                        <div className="row">
+                            <h3>리뷰</h3>
+                            <Container triggerText="리뷰 작성" onSubmit={this.onSubmit} />
+                        </div>
                         <ReviewList
                             data={reviews}
                             onRemove={this.handleRemove}

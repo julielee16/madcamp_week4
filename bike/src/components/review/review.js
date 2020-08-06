@@ -82,12 +82,7 @@ class Review extends Component {
                                 return (
                                 <label>
                                     <input type="radio" name="level_score" value={ratingValue} onClick={this.handleChange}/>
-                                    <FaStar 
-                                        className="star"
-                                        color={ratingValue <= this.state.level_score ? "#ffc107" : "#e4e5e9" }
-                                        size={20}
-                                        onMouseEnter={this.handleChange}
-                                        on/>
+                                    <FaStar className="star" color={ratingValue <= this.state.level_score ? "#ffc107" : "#e4e5e9" } size={20}/>
                                 </label>
                                 );
                             })}

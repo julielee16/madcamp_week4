@@ -8,15 +8,16 @@ import { Collapse, Container, Media,  Card, CardImg, CardImgOverlay, CardText, C
 class MyPage extends Component {
     render() {
         return (
+            <Card className="card-profile shadow mx-auto" style={{width:"1400px", margin:"20px"}}>
             <Container className="mt--7" fluid>
                 <Navbar color="faded" light>
-                    <NavbarBrand href="/" className="mr-auto">자전거를 타고 떠나다</NavbarBrand>
+                    <NavbarBrand href="/" className="mr-auto">유저 정보</NavbarBrand>
                 </Navbar>
                 <Form>
                     <Row>
                         <Col xs="2">
                             <div className="content">
-                                <DropZone />
+                                <DropZone  />
                             </div>
                         </Col>
                         <Col>
@@ -32,7 +33,7 @@ class MyPage extends Component {
                                             </NavLink>
                                         </NavItem>
                                 </Nav>
-                            <Card body className="card-profile shadow">
+                            <Card body className="card-profile" style={{width:"1000px"}}>
                                 <Row>
                                     <Col>
                                         <FormGroup>
@@ -169,6 +170,7 @@ class MyPage extends Component {
                     </Row>
                 </Form>
             </Container>
+            </Card>
         );
     }
 }

@@ -110,5 +110,5 @@ input[type="radio"] {
 
 .row {
   display: inline-block;
-  justify-content: center;
+  margin: 5px;
 }
